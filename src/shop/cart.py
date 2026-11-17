@@ -29,6 +29,9 @@ class Cart:
         else:
             self._items[name] = Item(name, price, qty)
 
+    def format_total(self) -> str:
+        return self.total()
+
     def remove(self, name: str) -> None:
         if name not in self._items:
             raise KeyError(name)
@@ -49,3 +52,8 @@ class Cart:
             raise ValueError("rate must be positive")
         return round(self.total() / rate, 2)
 
+    def most_expensive(self) -> Item | None:
+        if not self._items:
+            return None
+
+        return max(self._items.values(), key=lambda item: item.price)
