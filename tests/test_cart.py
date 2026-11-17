@@ -2,6 +2,8 @@ from unittest.mock import Mock
 
 import pytest
 
+import os
+
 from shop.cart import Cart, Item, RateProvider
 
 
@@ -15,7 +17,7 @@ def test_empty_cart() -> None:
 def test_add_default_quantity() -> None:
     cart = Cart()
 
-    cart.add("book", price=200.0)
+    cart.add("book", price= 200.0)
 
     assert cart.items_count() == 1
     assert cart.total() == 200.0
