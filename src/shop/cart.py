@@ -29,6 +29,9 @@ class Cart:
         else:
             self._items[name] = Item(name, price, qty)
 
+    def format_total(self) -> str:
+        return self.total()
+
     def remove(self, name: str) -> None:
         if name not in self._items:
             raise KeyError(name)
